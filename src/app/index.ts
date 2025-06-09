@@ -6,11 +6,17 @@ import { exists, rm, mkdir } from "fs/promises";
 import { spawn } from "child_process";
 import { pipeline } from "stream/promises";
 
+type T_COMPRESSION_PROVIDER = {
+    tempDir: string;
+}
+
 export class CompressionProvider {
-    public readonly TEMP_DIR = path.join(process.cwd(), "src/.temp/packed/");
+    public readonly TEMP_DIR: string;
     public readonly fileExtension: string = ".xz";
 
-    constructor() {
+    constructor(private readonly opts: T_COMPRESSION_PROVIDER) {
+        this.TEMP_DIR = opts.tempDir;
+
         if (!existsSync(this.TEMP_DIR)) {
             mkdirSync(this.TEMP_DIR, { recursive: true });
         }
