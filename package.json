@@ -1,0 +1,26 @@
+{
+  "name": "@hopium-sdk/sqd-archive-compression",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && npx tsc"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@hopium-sdk/sol-blocks-schema": "^0.0.2",
+    "@msgpack/msgpack": "^3.1.2",
+    "colors": "^1.4.0"
+  }
+}
